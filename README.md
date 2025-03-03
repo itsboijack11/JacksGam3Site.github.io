@@ -14,7 +14,7 @@ Riddle school 5 Riddle school 4 Riddle school 3 Riddle school 2 Riddle school
 
 ### Five Nights At Freddy's
 
-Fnaf sister location (fan made) Fnaf 4 Fnaf 3 Fnaf 2 Fnaf 1
+Fnaf sister location Fnaf 4 Fnaf 3 Fnaf 2 Fnaf 1
 
 ### Nintendo
 
