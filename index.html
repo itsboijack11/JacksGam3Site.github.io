@@ -5,420 +5,195 @@
     <link rel="icon" type="image/ico" sizes="32x32" href="images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack's Game Site</title>
+    <title>.</title>
+    <script>
+     setTimeout(function() {
+            document.title = "J";
+        }, 2300);
+
+        setTimeout(function() {
+            document.title = "Ja";
+        }, 2550);
+
+        setTimeout(function() {
+            document.title = "Jac";
+        }, 2900);
+
+        setTimeout(function() {
+            document.title = "Jack";
+        }, 3125);
+
+        setTimeout(function() {
+            document.title = "Jack's";
+        }, 3500);
+
+        setTimeout(function() {
+            document.title = "G";
+        }, 3775);
+       
+        setTimeout(function() {
+            document.title = "Ga";
+        }, 4000);
+
+        setTimeout(function() {
+            document.title = "Gam";
+        }, 5000);
+
+        setTimeout(function() {
+            document.title = "Game";
+        }, 5070);
+
+        setTimeout(function() {
+            document.title = "Games";
+        }, 6035);
+
+        setTimeout(function() {
+            document.title = "Games!";
+        }, 7020);
+
+        setTimeout(function() {
+            document.title = "Jack's Games!";
+        }, 7020);
+    </script>
+    
+    <style>
+        html, body, iframe { margin: 0; padding: 0; height: 100%; border: none; }
+        iframe { display: block; width: 100%; overflow: hidden; }
+        .category-buttons { margin-top: 10px; }
+        .category-buttons button { font-size: 16px; padding: 5px; margin: 5px; cursor: pointer; }
+        #search-bar {
+            background: none;
+            padding: 10px;
+            margin: 20px 0;
+            width: 50%;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+    
 </head>
+
 <body>
-    <h1>all games</h1>
 
-    <br>
-    <h3>Fancy Pants</h3>
+    <h1>Jack's Games!</h1>
 
-<button onclick="openFancy1()">the Fancy Pants Adventure</button>
+    <label for="category">Select Category: </label>
+    <select id="category" onchange="displayButtons(this.value)">
+        <option value="games">Games</option>
+        <option value="proxies">Proxies</option>
+        <option value="tools">Tools</option> <!-- Added Tools category -->
+    </select>
 
-    <script>
-        function openFancy1() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/Flash.html?game=/Games6/fancypantsadventures/fancypantsadventure.swf" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
+    <input type="text" id="search-bar" placeholder="search for games, proxies, or tools.." oninput="filterButtons()" />
 
-    <br>
-    <h3>Slope</h3>
-
-    <button onclick="openSlope2()">Slope 2</button>
+    <div id="buttons-container" class="category-buttons"></div>
 
     <script>
-        function openSlope2() {
-            // Open a blank page
+        const games = [
+            { name: "Slope", url: "https://sz-games.github.io/slope/" },
+            { name: "Super Mario Bros", url: "https://sz-games.github.io/Games4/SuperMario/" },
+            { name: "Dead Shot", url: "https://deadshot.io" },
+            { name: "Et's Computer", url: "https://turbowarp.org/1081338772/" },
+            { name: "Subway Surfers", url: "https://dddavit.github.io/subway/" },
+            { name: "Particle Clicker", url: "https://original-manatee.capnhat.net/cdn/particle-clicker/index.html" },
+            { name: "1v1.lol", url: "https://sz-games.github.io/Games-2/lol/" },
+            { name: "Minecraft Resent4.0", url: "https://resent4-0.vercel.app/" },
+            { name: "Minecraft (Hacked)", url: "https://sz-games.github.io/storage3/AWeb" },
+            { name: "bitlife", url: "https://sz-games.github.io/rating.html?game=bitlife&&url=https://sz-games.github.io/games/game.html?game=/Games9/bitlife" },
+            { name: "slope 2", url: "https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games2/slope-2" },
+            { name: "infinite tower", url: "https://sz-games.github.io/home/webb/" },
+            { name: "tunnel rush", url: "https://sz-games.github.io/games/unity.html?game=https://sz-games.github.io/games/tunnel-rush/" },
+            { name: "space war", url: "https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/games/spac/" },
+            { name: "asteroids belt", url: "https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/games/spacesh/" },
+            { name: "slide in the wooods", url: "https://sz-games.github.io/games/woods" },
+            { name: "survivor mode", url: "https://sz-games.github.io/games/zombie" },
+            { name: "stack", url: "https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/games/stack" },
+            { name: "fly hydra", url: "https://sz-games.github.io/games/Bin/Game_file/call/hydra" },
+            { name: "dungeon warior", url: "https://sz-games.github.io/games/dungeon" },
+            { name: "infiltrating the airship", url: "https://sz-games.github.io/games/Flash.html?game=/games/henry-airship/infiltratingtheairshipgame.swf" },
+            { name: "fleeing the complex", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Fleeing%20the%20Complex.swf?raw=true" },
+            { name: "escaping the prison", url: "https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/games/stack" },
+            { name: "breaking the bank", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Breaking%20the%20Bank.swf?raw=truek" },
+            { name: "stealing the diamond", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Stealing%20the%20Diamond.swf?raw=true" },
+            { name: "PC Breakdown", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/PC%20Breakdown.swf?raw=true" },
+
+        ];
+
+        const proxies = [
+            { name: "Intersteller", url: "https://study.toptrends.ch/up" },
+            { name: "Scratch Packager", url: "https://packager.turbowarp.org/" },
+            { name: "Ghost Proxy", url: "https://i-said-gg-five-times.opiumm.d-n-s.name/c/" },
+            { name: "Sz Games", url: "https://sz-games.github.io" },
+            { name: "Ghost Proxy (Search)", url: "https://i-said-gg-five-times.opiumm.d-n-s.name/q/" },
+            { name: "Cobalt.tools", url: "https://cobalt.tools" }
+        ];
+
+        const tools = [  // Created Tools category
+            { name: "Google", url: "https://www.google.com/webhp?igu=1" },
+            { name: "Cobalt", url: "https://cobalt.tools/" }
+        ];
+
+        let displayedData = [];  // Holds the data that is currently displayed (for search filtering)
+
+        function displayButtons(category) {
+            const container = document.getElementById("buttons-container");
+            container.innerHTML = ''; // Clear the container before adding new buttons
+
+            let data;
+            if (category === "games") {
+                data = games;
+            } else if (category === "proxies") {
+                data = proxies;
+            } else if (category === "tools") {  // Handling Tools category
+                data = tools;
+            }
+
+            // Save the current data being displayed for filtering
+            displayedData = data;
+
+            data.forEach(item => {
+                const button = document.createElement("button");
+                button.textContent = item.name;
+                button.onclick = () => openGame(item.url);
+                container.appendChild(button);
+            });
+        }
+
+        function openGame(url) {
             var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games2/slope-2" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
+            newWindow.document.write(`
+                <html>
+                    <head><style>
+                        html, body, iframe { margin: 0; padding: 0; height: 100%; border: none; }
+                        iframe { display: block; width: 100%; overflow: hidden; }
+                    </style></head>
+                    <body><iframe src="${url}" frameborder="0" width="100%" height="100%" scrolling="auto"></iframe></body>
+                </html>
+            `);
             newWindow.document.close();
         }
-    </script>
 
-    <button onclick="openSlope()">Slope</button>
+        function filterButtons() {
+            const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+            const container = document.getElementById("buttons-container");
 
-    <script>
-        function openSlope() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/slope/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
+            // Filter the displayed data based on the search term
+            const filteredData = displayedData.filter(item => 
+                item.name.toLowerCase().includes(searchTerm)
+            );
+
+            // Clear the container and display the filtered buttons
+            container.innerHTML = '';
+            filteredData.forEach(item => {
+                const button = document.createElement("button");
+                button.textContent = item.name;
+                button.onclick = () => openGame(item.url);
+                container.appendChild(button);
+            });
         }
+
+        // Initialize with the 'games' category selected
+        displayButtons('games');
     </script>
-
-    <br>
-    <h3>Riddle School</h3>
-
-    <button onclick="openRiddle5()">Riddle school 5</button>
-
-    <script>
-        function openRiddle5() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/Flash.html?game=/games/swf/riddd5.swf" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openRiddle4()">Riddle school 4</button>
-
-    <script>
-        function openRiddle4() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/Flash.html?game=/games/swf/riddd4.swf" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openRiddle3()">Riddle school 3</button>
-
-    <script>
-        function openRiddle3() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/Flash.html?game=/games/swf/riddd3.swf" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openRiddle2()">Riddle school 2</button>
-
-    <script>
-        function openRiddle2() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/Flash.html?game=/games/swf/riddd2.swf" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openRiddle1()">Riddle school</button>
-
-    <script>
-        function openRiddle1() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/Flash.html?game=/games/swf/riddd.swf" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <br>
-    <h3>Five Nights At Freddy's</h3>
-    
-    <button onclick="openFnafSis()">Fnaf sister location (fan made)</button>
-
-    <script>
-        function openFnafSis() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games5/fnafsl.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openFnaf4()">Fnaf 4</button>
-
-    <script>
-        function openFnaf4() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games9/fnaf-4/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openFnaf3()">Fnaf 3</button>
-
-    <script>
-        function openFnaf3() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games9/fnaf-3/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openFnaf2()">Fnaf 2</button>
-
-    <script>
-        function openFnaf2() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games4//fnaf-2/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openFnaf1()">Fnaf 1</button>
-
-    <script>
-        function openFnaf1() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games9/fnaf-1/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <br>
-    <h3>Nintendo</h3>
-
-    <button onclick="openSuperMario()">Super Mario Bros</button>
-
-    <script>
-        function openSuperMario() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games4/SuperMario/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <br>
-    <h3>Other games</h3>
-
-    <button onclick="openETcomputer()">Et's computer</button>
-
-    <script>
-        function openETcomputer() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://turbowarp.org/1081338772/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openSubwaySurfers()">subway surfers</button>
-
-    <script>
-        function openSubwaySurfers() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://dddavit.github.io/subway/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openinfinitecraft()">Neal.fun</button>
-
-    <script>
-        function openinfinitecraft() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://neal.fun/infinite-craft/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openPartClicker()">particle clicker</button>
-
-    <script>
-        function openPartClicker() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://original-manatee.capnhat.net/cdn/particle-clicker/index.html" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-    
-    <button onclick="open1v1lol()">1v1.lol</button>
-
-    <script>
-        function open1v1lol() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/Games-2/lol/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openMinecraft()">Minecraft</button>
-
-    <script>
-        function openMinecraft() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io/games/game.html?game=https://sz-games.github.io/storage3/AWeb" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <br>
-    <h1>Proxy's (used for adding games)</h1>
-
-    <button onclick="openTurboWarp()">Turbowarp packager</button>
-
-    <script>
-        function openTurbWarp() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://packager.turbowarp.org/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openGhostProxy()">Ghost Proxie</button>
-
-    <script>
-        function openGhostProxy() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://i-said-gg-five-times.opiumm.d-n-s.name/c/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openSzGames()">sz games</button>
-
-    <script>
-        function openSzGames() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://sz-games.github.io" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openMochaProxy()">Mocha proxy</button>
-
-    <script>
-        function openMochaProxy() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://original-manatee.capnhat.net/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-
-    <button onclick="openGhostProxyS()">Ghost proxy (search)</button>
-
-    <script>
-        function openGhostProxyS() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://i-said-gg-five-times.opiumm.d-n-s.name/q/" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-    <button onclick="openDDDavitgit()">DDDavit.github.io</button>
-
-    <script>
-        function openDDDavitgit() {
-            // Open a blank page
-            var newWindow = window.open('about:blank', '_blank');
-            
-            // Write HTML code inside the new page
-            newWindow.document.write('<!DOCTYPE html><head><style type="text/css">html {overflow: auto;}html,body,div,iframe {margin: 0px;padding: 0px;height: 100%;border: none;}iframe {display: block;width: 100%;border: none;overflow-y: auto;overflow-x: hidden;}</style></head><body><iframe src="https://dddavit.github.io" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></body></html>');
-            
-            // Close the document to finish writing
-            newWindow.document.close();
-        }
-    </script>
-    
 </body>
 </html>
