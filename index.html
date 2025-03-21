@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>.</title>
     <script>
-     setTimeout(function() {
+        setTimeout(function() {
             document.title = "J";
         }, 2300);
 
@@ -69,6 +69,10 @@
             font-size: 16px;
             text-align: center;
         }
+        #game-count {
+            font-size: 18px;
+            margin: 10px 0;
+        }
     </style>
     
 </head>
@@ -83,6 +87,8 @@
         <option value="proxies">Proxies</option>
         <option value="tools">Tools</option> <!-- Added Tools category -->
     </select>
+
+    <div id="game-count">Games Count: 0</div> <!-- Game count display -->
 
     <input type="text" id="search-bar" placeholder="search for games, proxies, or tools.." oninput="filterButtons()" />
 
@@ -116,7 +122,6 @@
             { name: "breaking the bank", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Breaking%20the%20Bank.swf?raw=truek" },
             { name: "stealing the diamond", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/Henry%20Stickmin%20-%20Stealing%20the%20Diamond.swf?raw=true" },
             { name: "PC Breakdown", url: "https://sz-games.github.io/games/Flash.html?game=https://sz-games.github.io/Games6/PC%20Breakdown.swf?raw=true" },
-
         ];
 
         const proxies = [
@@ -128,28 +133,30 @@
             { name: "Cobalt.tools", url: "https://cobalt.tools" }
         ];
 
-        const tools = [  // Created Tools category
+        const tools = [
             { name: "Google", url: "https://www.google.com/webhp?igu=1" },
             { name: "Cobalt", url: "https://cobalt.tools/" }
         ];
 
-        let displayedData = [];  // Holds the data that is currently displayed (for search filtering)
+        let displayedData = [];
 
         function displayButtons(category) {
             const container = document.getElementById("buttons-container");
-            container.innerHTML = ''; // Clear the container before adding new buttons
+            container.innerHTML = '';
 
             let data;
             if (category === "games") {
                 data = games;
             } else if (category === "proxies") {
                 data = proxies;
-            } else if (category === "tools") {  // Handling Tools category
+            } else if (category === "tools") {
                 data = tools;
             }
 
-            // Save the current data being displayed for filtering
             displayedData = data;
+
+            // Update game count
+            document.getElementById("game-count").textContent = `Games Count: ${data.length}`;
 
             data.forEach(item => {
                 const button = document.createElement("button");
@@ -177,12 +184,10 @@
             const searchTerm = document.getElementById("search-bar").value.toLowerCase();
             const container = document.getElementById("buttons-container");
 
-            // Filter the displayed data based on the search term
             const filteredData = displayedData.filter(item => 
                 item.name.toLowerCase().includes(searchTerm)
             );
 
-            // Clear the container and display the filtered buttons
             container.innerHTML = '';
             filteredData.forEach(item => {
                 const button = document.createElement("button");
