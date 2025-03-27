@@ -6,4 +6,6 @@ _donwloads_ [download version1.1.zip]([https://github.com/itsboijack11/itsboijac
 
 Version 1.0 (March 20 2025 10:00 PM)
 -launched
-**No download**
+
+[Download README.md]([https://github.com/your-username/your-repository-name/raw/main/assets/example.zip](https://github.com/itsboijack11/itsboijack11.github.io/main/README.md))
+
