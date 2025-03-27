@@ -2,6 +2,6 @@
 <h3>Version 1.0</h3>
 <li>Added pop-up windows asking if the user wants to see if updates are available</li>
 <h1>Donwloads</h1>
-<a href="https://github.com/itsboijack11/itsboijack11.github.io/blob/main/version%201.0.zip](https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.0.zip">
+<a href="https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.0.zip">
 <button>Version 1.0</button>
 </a>
