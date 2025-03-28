@@ -5,3 +5,7 @@
 <a href="https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.0.zip">
 <button>Version 1.0</button>
 </a>
+<h1>Request a game</h1>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1w0KAcy8ElgZ_4BTxjUyR6Cnm2VT5cuZ0QJKOPROJCYmbg/viewform?usp=sharing">
+<button>Form to request a game</button>
+</a>
