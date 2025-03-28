@@ -1,22 +1,21 @@
 <h1>Changelogs</h1>
 <h3>Version 1.1</h3>
-<li>
--added run and, run3
-- added riddle school, riddle school 2, riddle school 3, riddle school 4, riddle school 5, riddle school: transfer and, riddle school: transfer 2
--added Google Dino
--added tetris
--added paper.io 2
--added papa's Pizzeria, papa's Cupcakeria, papa's Pastria, papa's Bakeria, papa's Sushiria, papa's Scooperia and, papa's Burgaria
--added bloxorz
--added cookie clicker
--added agar.io
--added basketball stars
--added crossy road
--added eel slap
--added WebGI Fluid Animation
--added funny shooter
--added geometry dash
-</li>
+<h4>-added run and, run3</h4>
+<h4>- added riddle school, riddle school 2, riddle school 3, riddle school 4, riddle school 5, riddle school: transfer and, riddle school: transfer 2</h4>
+<h4>-added Google Dino</h4>
+<h4>-added tetris</h4>
+<h4>-added paper.io 2</h4>
+<h4>-added papa's Pizzeria, papa's Cupcakeria, papa's Pastria, papa's Bakeria, papa's Sushiria, papa's Scooperia and, papa's Burgaria</h4>
+<h4>-added bloxorz</h4>
+<h4>-added cookie clicker</h4>
+<h4>-added agar.io</h4>
+<h4>-added basketball stars</h4>
+<h4>-added crossy road</h4>
+<h4>-added eel slap</h4>
+<h4>-added WebGI Fluid Animation</h4>
+<h4>-added funny shooter</h4>
+<h4>-added geometry dash</h4>
+  <br>
 <h3>Version 1.0</h3>
 <li>Added pop-up windows asking if the user wants to see if updates are available(shows up as version 1.1 just ignore it when 1.1 comes out)</li>
 <h1>Donwloads</h1>
