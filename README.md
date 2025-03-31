@@ -23,6 +23,7 @@
 <a href="https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.1.zip">
   <button>Version 1.1</button>
 </a>
+<br>
 <a href="https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.0.zip">
 <button>Version 1.0</button>
 </a>
