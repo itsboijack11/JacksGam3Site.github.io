@@ -1,5 +1,9 @@
 <h1>Changelogs</h1>
 <br>
+<h3>Version 1.3</h3>
+<h4></h4>IMPORTANT NOTICE! THIS IS MADE BY JACK DAVIS NO ONE ELSE IF SOMEONE SAYS ITS THEIRS EMAIL ME AT "davisjackkody@gmail.com" WITH THEIR EMAIL
+-fixed interstellar you can now search!
+-added a ton more games!
 <h3>Version 1.2</h3>
 Chnagelog version 1.2
 sorry that this update took a while to get out my chromebook broke but I am using a loaner right now. Thanks for your patience :)
@@ -57,6 +61,9 @@ sorry that this update took a while to get out my chromebook broke but I am usin
 <li>Added pop-up windows asking if the user wants to see if updates are available(shows up as version 1.1 just ignore it when 1.1 comes out)</li>
   <br>
   <h1>Downloads</h1>
+  <a href="https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.3.zip">
+    <button>Version 1.3</button>
+  </a>
   <a href="https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.2.zip">
   <button>Version 1.2</button>
 </a>
