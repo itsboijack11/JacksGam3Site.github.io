@@ -65,6 +65,7 @@ sorry that this update took a while to get out my chromebook broke but I am usin
   <a href="https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.3.zip">
     <button>Version 1.3</button>
   </a>
+  <br>
   <a href="https://github.com/itsboijack11/JacksGam3Site.github.io/blob/main/version%201.2.zip">
   <button>Version 1.2</button>
 </a>
