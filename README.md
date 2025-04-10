@@ -2,8 +2,9 @@
 <br>
 <h3>Version 1.3</h3>
 <h4></h4>IMPORTANT NOTICE! THIS IS MADE BY JACK DAVIS NO ONE ELSE IF SOMEONE SAYS ITS THEIRS EMAIL ME AT "davisjackkody@gmail.com" WITH THEIR EMAIL
--fixed interstellar you can now search!
--added a ton more games!
+<h4>-fixed interstellar you can now search!</h4>
+<h4>-added a ton more games!</h4>
+<br>
 <h3>Version 1.2</h3>
 Chnagelog version 1.2
 sorry that this update took a while to get out my chromebook broke but I am using a loaner right now. Thanks for your patience :)
