@@ -4,6 +4,7 @@
 <h4></h4>IMPORTANT NOTICE! THIS IS MADE BY JACK DAVIS NO ONE ELSE IF SOMEONE SAYS ITS THEIRS EMAIL ME AT "davisjackkody@gmail.com" WITH THEIR EMAIL
 <h4>-fixed interstellar you can now search!</h4>
 <h4>-added a ton more games!</h4>
+<h4>Says the version in 1.2 I was rushing srry abt that</h4>
 <br>
 <h3>Version 1.2</h3>
 Chnagelog version 1.2
