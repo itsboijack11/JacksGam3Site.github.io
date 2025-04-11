@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact information</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 14px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(0);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .navbar.hidden {
+      transform: translateY(-100%);
+    }
+
+    .navbar .title {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #ddd;
+    }
+
+    .content {
+      padding: 100px 20px 20px; /* Added top padding so content isn't under navbar */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar" id="navbar">
+    <a href="index.html">
+    <div class="title">Jacks game site</div>
+    </a>
+    <div class="nav-links">
+      <a href="downloads.html">Downloads</a>
+      <a href="aboutus.html">About us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>Contact information</h1>
+    <h3>Email: samyplays55@gmail.com</h3>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1w0KAcy8ElgZ_4BTxjUyR6Cnm2VT5cuZ0QJKOPROJCYmbg/viewform?usp=sharing">
+    <h3>request a game</h3>
+    </a>
+    <a href="https://github.com/itsboijack11/JacksGam3Site.github.io/tree/main">
+    <h3>Github respitory</h3>
+    </a>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+
+    document.addEventListener('mousemove', function (e) {
+      // If the mouse is near the top 100px of the screen, show the navbar
+      if (e.clientY < 100) {
+        navbar.classList.remove('hidden');
+      } else {
+        navbar.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
